@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using csharp_gestore_eventi;
+
 // evento -> id
 //        -> data
 //        -> posti totali
@@ -7,7 +9,7 @@
 //        -> posti ancora disponibili
 //        -> concluso(se la data di oggi > data evento)
 
-     
+
 // Gestionale che gestisce gli eventi
 //--lista eventi
 //--()crea evento
@@ -17,3 +19,5 @@
 //        -> ()disdici --> evento.numero prenotazioni -1 ?? voglio evitaare che un cliente disdica senza aver mai prenotato 
 
 
+Event nuovoEvento = new Event("aerosmith", DateTime.Now, 1000000);
+Console.WriteLine(nuovoEvento.ToString());

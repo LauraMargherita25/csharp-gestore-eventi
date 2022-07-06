@@ -14,12 +14,12 @@ namespace csharp_gestore_eventi
         private int reservedSeats;
 
 
-        public Event (string title, DateTime date, int seats, int reservedSeats)
+        public Event (string title, DateTime date, int seats)
         {
             this.Title = title;
             this.Date = date;
             this.Seats = seats;
-            this.ReservedSeats = reservedSeats;
+            this.ReservedSeats = 0;
             
         }
 
@@ -41,7 +41,7 @@ namespace csharp_gestore_eventi
                 this.date = value;
                 
                 DateTime today = DateTime.Today;
-                int res = DateTime.Compare(value, today);
+                int res = DateTime.Compare(this.date, today);
                 if (res < 0)
                 {
                     throw new InvalidOperationException();
@@ -49,7 +49,7 @@ namespace csharp_gestore_eventi
             } 
         }
         public int Seats {
-            get { return this.seats } 
+            get { return this.seats; } 
             private set { 
                 this.seats = value;
                 
@@ -59,7 +59,12 @@ namespace csharp_gestore_eventi
                 }
             } 
         }
-        public int ReservedSeats { get; private set; } = 0;
-        
+        public int ReservedSeats { get; private set; }
+
+        public override string ToString()
+        {
+            return this.Date.ToString("dd/MM/yyyy") + " - " + this.Title;
+        }
+
     }
 }
